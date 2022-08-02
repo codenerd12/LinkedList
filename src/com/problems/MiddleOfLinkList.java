@@ -5,6 +5,8 @@ public class MiddleOfLinkList {
 	private static Node middleNode(Node node) {
 		
 		Node slow = node;
+		
+		//if we need the first middle element from even linklist then we have to point fast = node.next initially 
 		Node fast = node;
 		
 		while(fast!=null && fast.next!=null) {
