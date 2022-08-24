@@ -32,19 +32,32 @@ public class MergeTwoSortedLinkList {
 	        
 	        while(p1!=null && p2!=null) {
 	            
-	            while(p1!=null && p1.data <= p2.data) {
+	            
+	            if(p1.data <= p2.data) {
+	                
 	                prev = p1;
 	                p1 = p1.next;
-	            } 
+	                
+	                
+	            } else {
+	                
+	                prev.next = p2;
+	                prev = p2;
+	                
+	                //swap
+	                Node temp = p1;
+	                p1 = p2;
+	                p2 = temp;
+	            }
 	            
-	            prev.next = p2;
-
-	            //swap pointers p1 and p2
-	            Node temp = p1;
-	            p1 = p2;
-	            p2 = temp;
 	            
 	        }
+	        
+	        if(p1!=null)
+	            prev.next = p1;
+	        
+	        if(p2!=null)
+	            prev.next = p2;
 	        
 	        
 	        return list1;
